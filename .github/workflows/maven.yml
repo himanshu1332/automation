@@ -37,5 +37,5 @@ jobs:
         unzip chromedriver_linux64.zip
         chmod +x chromedriver
         mv chromedriver /usr/local/bin/
-        cd automation  # Assuming your Java code is inside the "automation" directory
+        cd src/main/java/automation  # Assuming your Java code is inside the "automation" directory
         mvn clean test
