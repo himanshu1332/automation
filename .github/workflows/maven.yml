@@ -20,22 +20,21 @@ jobs:
     - name: Set up Java 11
       uses: actions/setup-java@v2
       with:
-            java-version: '11'  # Replace '11' with the desired Java version, e.g., '8', '11', '15', etc.
-            distribution: 'adopt'
+        java-version: 11
 
     - name: Cache Maven dependencies
       uses: actions/cache@v2
       with:
         path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        key: ${{ runner.os }}-maven-${{ hashFiles('pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
 
     - name: Build and run Selenium tests
+      working-directory: ./automation
       run: |
         wget https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         chmod +x chromedriver
         mv chromedriver /usr/local/bin/
-        cd src/main/java/automation  # Assuming your Java code is inside the "automation" directory
         mvn clean test
