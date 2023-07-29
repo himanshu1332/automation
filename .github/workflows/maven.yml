@@ -39,5 +39,6 @@ jobs:
         sudo mv /tmp/chromedriver /usr/local/bin/chromedriver
 
     - name: Build and run Selenium tests
-      working-directory: ./automation
+      working-directory: .
       run: mvn clean test
+
