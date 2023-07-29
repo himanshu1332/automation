@@ -38,3 +38,5 @@ jobs:
         chmod +x chromedriver
         mv chromedriver /usr/local/bin/
         mvn clean test
+        cd src/main/java/automation  # Assuming your Java code is inside the "automation" directory
+        mvn clean test
