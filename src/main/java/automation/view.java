@@ -239,7 +239,7 @@ class page8 {
 public class view {
     public static void main(String[] args) throws InterruptedException {
         // Set the system property to the location of the ChromeDriver executable
-        System.setProperty("webdriver.chrome.driver", "F:\\PROGRAMMING\\Automation/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 
         // Create an instance of ChromeDriver (this will open the Chrome browser)
         WebDriver driver = new ChromeDriver();
