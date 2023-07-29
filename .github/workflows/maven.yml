@@ -1,8 +1,9 @@
-name: Scheduled Build and Test
+name: Continuous Build and Test
 
 on:
-  schedule:
-    - cron: "*/40 * * * *"
+  push:
+    branches:
+      - main  # Replace "main" with your default branch name, e.g., "master"
 
 jobs:
   build-and-test:
@@ -12,6 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Add other steps for building and testing your project here
+      # For example, if you are using Java and Maven:
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
