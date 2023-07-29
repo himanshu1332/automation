@@ -40,5 +40,5 @@ jobs:
 
     - name: Build and run Selenium tests
       working-directory: .
-      run: mvn clean test
+      run: mvn clean test -X
 
