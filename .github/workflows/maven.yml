@@ -1,21 +1,40 @@
-name: Run My Code
+name: Java Selenium Tests
 
 on:
   push:
     branches:
-      - main  # Replace 'main' with the branch you want to trigger the workflow on
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  run_code:
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Run my code
-        run: |
-          # Add the commands to run your code here
-          # For example, if it's a Java project, you might use 'mvn package'
-          # If it's a Python script, you might use 'python my_script.py'
-          # Replace these commands with the actual ones that run your code
+    - name: Set up Java 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: 11
+
+    - name: Cache Maven dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
+    - name: Build and run Selenium tests
+      run: |
+        wget https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        chmod +x chromedriver
+        mv chromedriver /usr/local/bin/
+        cd automation  # Assuming your Java code is inside the "automation" directory
+        mvn clean test
