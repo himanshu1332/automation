@@ -53,6 +53,7 @@ public class BlogTest {
   }
   @Test
   public void view() {
+	  for(int i = 0;i<=100;i++){
     driver.get("https://learnernpoint.blogspot.com/");
     driver.manage().window().setSize(new Dimension(1552, 840));
     driver.findElement(By.linkText("Data Visualization with Tableau")).click();
@@ -149,6 +150,7 @@ public class BlogTest {
       builder.moveToElement(element, 0, 0).perform();
     }
     driver.findElement(By.cssSelector("center:nth-child(8) p")).click();
+  }
   }
 }
 
