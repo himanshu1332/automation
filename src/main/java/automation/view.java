@@ -15,7 +15,7 @@ class Scrollpage{
 		
 		WebElement footer = driver.findElement(By.tagName("footer"));
         int deltaY = footer.getRect().y;
-        new Actions(driver)
+        new Actions(driver) 
                 .scrollByAmount(0, deltaY)
                 .perform();
 	}
