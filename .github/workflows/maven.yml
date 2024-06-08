@@ -3,6 +3,9 @@ name: Java CI with Selenium
 on:
   schedule:
     - cron: '0 0 * * *'  # Run every day at midnight
+  push:
+    branches:
+      - main  # Specify the branch you want to trigger the workflow on commit, e.g., main
 
 jobs:
   build:
