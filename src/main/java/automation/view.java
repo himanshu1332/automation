@@ -24,7 +24,7 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-public class BlogTest {
+public class view {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -52,7 +52,7 @@ public class BlogTest {
     return whNow.iterator().next();
   }
   @Test
-  public void view() {
+  public void viewTest() {
 	  for(int i = 0;i<=100;i++){
     driver.get("https://learnernpoint.blogspot.com/");
     driver.manage().window().setSize(new Dimension(1552, 840));
